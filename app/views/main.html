@@ -18,8 +18,8 @@
         <div class="col-md-6">'{{toilet.bestReview}}'</div>
         <div class="col-md-2">
           <span class="input-group-btn">
-            <button class="btn" ng-click="voteUpToilet($index)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{toilet.upvotes}}</button>
-            <button class="btn" ng-click="voteUpToilet($index)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{toilet.downvotes}}</button>
+            <button class="btn" ng-click="upVote(toilet)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{toilet.upvotes}}</button>
+            <button class="btn" ng-click="downVote(toilet)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{toilet.downvotes}}</button>
           </span>
         </div>
       </div>
