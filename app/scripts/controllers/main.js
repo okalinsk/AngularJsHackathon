@@ -9,9 +9,7 @@
  */
 angular.module('poogleApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    $scope.toilets = [
+      { place : 'crown plasa hotel toilet', bestReview : "Best poo of my life" }
     ];
   });

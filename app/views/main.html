@@ -1,9 +1,9 @@
 <div class="container">
-  <h2>My todos</h2>
-  <form role="form" ng-submit="addTodo()">
+  <h2>The best toilets around you, all just waiting for you</h2>
+  <form role="form" ng-submit="addToilet()">
       <div class="row">
         <div class="input-group">
-          <input type="text" ng-model="todo" placeholder="new task" class="form-control">
+          <input type="text" ng-model="toilet" placeholder="new task" class="form-control">
           <span class="input-group-btn">
             <input type="submit" class="btn btn-primary" value="Add">
           </span>
@@ -11,11 +11,11 @@
       </div>
   </form>
 
-  <div ui-sortable ng-model="todos">
-    <p class="input-group" ng-repeat="todo in todos" style="padding:5px 10px; cursor: move;">
-      <input type="text" ng-model="todo" class="form-control">
-        <span class="input-group-btn">
-      <button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+  <div ui-sortable ng-model="toilets">
+    <p class="input-group" ng-repeat="toilet in toilets" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="toilet.place" class="form-control" ng-text="Best review so far - '{{toilet.bestReview}}'">
+      <span class="input-group-btn">
+        <button class="btn icon-arrow-up" ng-click="voteUpToilet($index)" aria-label="Voteup">^</button>
       </span>
     </p>
   </div>
