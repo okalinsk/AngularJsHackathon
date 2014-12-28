@@ -12,11 +12,17 @@
   </form>
 
   <div ui-sortable ng-model="toilets">
-    <p class="input-group" ng-repeat="toilet in toilets" style="padding:5px 10px; cursor: move;">
-      <input type="text" ng-model="toilet.place" class="form-control">Best review so far - '{{toilet.bestReview}}'
-      <span class="input-group-btn">
-        <button class="btn icon-arrow-up" ng-click="voteUpToilet($index)" aria-label="Voteup">^</button>
-      </span>
+    <p class="input-group" style="padding:5px 10px; cursor: move;">
+      <div ng-repeat="toilet in toilets">
+        <div class="col-md-4">{{toilet.place}}</div>
+        <div class="col-md-6">'{{toilet.bestReview}}'</div>
+        <div class="col-md-2">
+          <span class="input-group-btn">
+            <button class="btn" ng-click="voteUpToilet($index)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{toilet.upvotes}}</button>
+            <button class="btn" ng-click="voteUpToilet($index)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{toilet.downvotes}}</button>
+          </span>
+        </div>
+      </div>
     </p>
   </div>
 </div>
