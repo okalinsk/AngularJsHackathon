@@ -10,6 +10,7 @@
 angular.module('poogleApp')
   .controller('MainCtrl', function ($scope) {
     $scope.toilets = [
-      { place : 'Mashov toilets', bestReview : 'By far the toilet with the most exotic smell'}
+      { place : 'crown plasa hotel toilet', bestReview : "Best poo of my life" },
+      { place : 'Mashov toilets', bestReview : 'By far the toilet with the most exotic smell' }
     ];
   });
