@@ -23,11 +23,18 @@ angular.module('poogleApp')
     	return { color : "rgb(" + Math.floor(255*(downvotes / total)) + ", " + Math.floor(255*(upvotes / total)) + ", 0)" }
     }
     $scope.upVote = function (toilet) {
-    	toilet.upvotes += 1;
+    	if(toilet.upvotes == undefined)
+			toilet.upvotes = 1;
+		else
+			toilet.upvotes +=1;
     	toilet.toiletStyle = "getStyle(toilet)"
     }
     $scope.downVote = function (toilet) {
-    	toilet.downvotes += 1;
+    	if(toilet.downvotes == undefined)
+			toilet.downvotes = 1;
+		else
+			toilet.downvotes +=1;
+
     	toilet.toiletStyle = "getStyle(toilet)"
     }
 

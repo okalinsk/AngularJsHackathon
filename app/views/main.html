@@ -12,8 +12,29 @@
       </div>
   </form>
 
-  <div ui-sortable ng-model="toilets">
-    <p class="input-group" style="padding:5px 10px; cursor: move;">
+  <div ng-model="toilets">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Vicinity</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="datum in data">
+      <td>{{ datum.name }}</td>
+      <td>{{ datum.vicinity}}</td>
+	  <td>
+            <button class="btn" ng-click="upVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{datum.upvotes || 0}}</button>
+	  </td>
+	  <td>
+            <button class="btn" ng-click="downVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{datum.downvotes || 0}}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <p class="table">
       <div ng-repeat="toilet in toilets" ng-style="getStyle(toilet)">
         <div class="col-md-4">{{toilet.place}}</div>
         <div class="col-md-6">'{{toilet.bestReview}}'</div>
@@ -25,10 +46,4 @@
         </div>
       </div>
     </p>
-  </div>
-  <div ui-sortable ng-model="data">
-    <p class="input-group" ng-repeat="datum in data" style="padding:5px 10px; cursor: move;">
-      {{datum.name}}
-    </p>
-  </div>
 </div>
