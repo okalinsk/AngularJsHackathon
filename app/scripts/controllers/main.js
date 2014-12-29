@@ -31,8 +31,12 @@ angular.module('poogleApp')
     	toilet.toiletStyle = "getStyle(toilet)"
     }
 
+    function setData(data) {
+    	$scope.data = data;
+    }
+
 	$scope.data = ngGPlacesAPI.nearbySearch({latitude:-33.8665433, longitude:151.1956316}).then(
 		function(data){
-			return data;
+			setData(data);
 		});
   });
