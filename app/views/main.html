@@ -26,4 +26,12 @@
       </div>
     </p>
   </div>
+  <div ui-sortable ng-model="data">
+    <p class="input-group" ng-repeat="datum in data" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="datum.reference" class="form-control">Best review so far - '{{datum.name}}'
+      <span class="input-group-btn">
+        <button class="btn icon-arrow-up" ng-click="voteUpToilet($index)" aria-label="Voteup">^</button>
+      </span>
+    </p>
+  </div>
 </div>
