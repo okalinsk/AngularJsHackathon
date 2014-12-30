@@ -3,6 +3,10 @@ dist
 .tmp
 .sass-cache
 bower_components/*
+
 !/bower_components/angularjs-google-places/
 /bower_components/angularjs-google-places/*
 !/bower_components/angularjs-google-places/bower.json
+!/bower_components/angularjs-google-places/src
+/bower_components/angularjs-google-places/src/*
+!/bower_components/angularjs-google-places/src/angularjs-google-places.js
