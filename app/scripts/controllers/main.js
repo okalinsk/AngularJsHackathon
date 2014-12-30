@@ -8,42 +8,37 @@
  * Controller of the poogleApp
  */
 angular.module('poogleApp')
-  .controller('MainCtrl', function ($scope, ngGPlacesAPI) {
-    $scope.toilets = [
-      { place : 'crown plasa hotel toilet', bestReview : "Best poo of my life" , upvotes: 4, downvotes: 1 },
-      { place : 'Mashov toilets', bestReview : 'By far the toilet with the most exotic smell' , upvotes: 0, downvotes: 1000 },
-      { place : 'Kneset israel', bestReview : 'Shit is all over the place', upvotes: 100, downvotes: 100 }
-    ];
+  .controller('MainCtrl', function ($scope, $timeout, ngGPlacesAPI, pooUserDataFetcher) {
 
     $scope.getStyle = function(toilet) {
-    	console.log("Got style for " + toilet.place)
-    	var downvotes = Math.max(1, toilet.downvotes);
-    	var upvotes = toilet.upvotes;
+    	var downvotes = Math.max(1, toilet.userData.downvotes);
+    	var upvotes = toilet.userData.upvotes;
     	var total = downvotes + upvotes;
     	return { color : "rgb(" + Math.floor(255*(downvotes / total)) + ", " + Math.floor(255*(upvotes / total)) + ", 0)" }
     }
     $scope.upVote = function (toilet) {
-    	if(toilet.upvotes == undefined)
-			toilet.upvotes = 1;
+    	if(toilet.userData.upvotes == undefined)
+			toilet.userData.upvotes = 1;
 		else
-			toilet.upvotes +=1;
+			toilet.userData.upvotes +=1;
     	toilet.toiletStyle = "getStyle(toilet)"
     }
     $scope.downVote = function (toilet) {
-    	if(toilet.downvotes == undefined)
-			toilet.downvotes = 1;
+    	if(toilet.userData.downvotes == undefined)
+			toilet.userData.downvotes = 1;
 		else
-			toilet.downvotes +=1;
+			toilet.userData.downvotes +=1;
 
     	toilet.toiletStyle = "getStyle(toilet)"
     }
 
-    function setData(data) {
-    	$scope.data = data;
-    }
-
-	$scope.data = ngGPlacesAPI.nearbySearch({latitude:-33.8665433, longitude:151.1956316}).then(
-		function(data){
-			setData(data);
-		});
-  });
+	$scope.data = ngGPlacesAPI.nearbySearch({latitude:-33.8665433, longitude:151.1956316}).then(function(data){
+    $timeout(function() {
+			$scope.data = data
+      console.log(data)
+      data.forEach(function(place){
+        place.userData = pooUserDataFetcher.getUserDataFor(place.place_id)
+      })
+		})
+	});
+});

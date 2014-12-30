@@ -26,10 +26,10 @@
       <td>{{ datum.name }}</td>
       <td>{{ datum.vicinity}}</td>
 	  <td>
-            <button class="btn" ng-click="upVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{datum.upvotes || 0}}</button>
+            <button class="btn" ng-click="upVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{datum.userData.upvotes || 0}}</button>
 	  </td>
 	  <td>
-            <button class="btn" ng-click="downVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{datum.downvotes || 0}}</button>
+            <button class="btn" ng-click="downVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{datum.userData.downvotes || 0}}</button>
       </td>
     </tr>
   </tbody>
