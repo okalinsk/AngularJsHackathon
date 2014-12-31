@@ -11,6 +11,8 @@ angular.module('poogleApp')
   .controller('MainCtrl', function ($scope, $timeout, ngGPlacesAPI, pooUserDataFetcher) {
 
     $scope.getStyle = function(toilet) {
+    	if (toilet == undefined || toilet.userData == undefined)
+    		return {};
     	var downvotes = Math.max(1, toilet.userData.downvotes);
     	var upvotes = toilet.userData.upvotes;
     	var total = downvotes + upvotes;

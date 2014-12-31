@@ -12,7 +12,8 @@ angular.module('poogleApp').factory('pooUserDataFetcher', function (){
     // };
 
 	this.getUserDataFor = function(id){
-		return toilets[id];
+		return { upvotes : 0, downvotes : 0 };
+		//toilets[id];
 	}
 
 	return this;

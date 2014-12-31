@@ -21,29 +21,19 @@
       <th>Rating</th>
     </tr>
   </thead>
-  <tbody>
-    <tr ng-repeat="datum in data">
-      <td>{{ datum.name }}</td>
-      <td>{{ datum.vicinity}}</td>
-	  <td>
-            <button class="btn" ng-click="upVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{datum.userData.upvotes || 0}}</button>
-	  </td>
-	  <td>
-            <button class="btn" ng-click="downVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{datum.userData.downvotes || 0}}</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  </table>
     <p class="table">
-      <div ng-repeat="toilet in toilets" ng-style="getStyle(toilet)">
-        <div class="col-md-4">{{toilet.place}}</div>
-        <div class="col-md-6">'{{toilet.bestReview}}'</div>
+      <div ng-repeat="datum in data" ng-style="getStyle(datum)">
+	   <div class="row">
+        <div class="col-md-4">{{datum.name}}</div>
+        <div class="col-md-6">'{{datum.vicinity}}'</div>
         <div class="col-md-2">
           <span class="input-group-btn">
-            <button class="btn" ng-click="upVote(toilet)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{toilet.upvotes}}</button>
-            <button class="btn" ng-click="downVote(toilet)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{toilet.downvotes}}</button>
+            <button class="btn" ng-click="upVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-up"></span>{{datum.userData.upvotes}}</button>
+            <button class="btn" ng-click="downVote(datum)" aria-label="Voteup"><span class="glyphicon glyphicon-thumbs-down"></span>{{datum.userData.downvotes}}</button>
           </span>
         </div>
+	   </div>
       </div>
     </p>
 </div>
