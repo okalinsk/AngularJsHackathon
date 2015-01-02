@@ -1,3 +1,5 @@
+'use strict'
+
 angular.module('poogleApp').factory('pooUserDataFetcher', function (){
 
 	var someId = "ChIJxXSgfDyuEmsR3X5VXGjBkFg"
