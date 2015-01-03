@@ -13,9 +13,9 @@ angular.module('poogleApp')
     $scope.getStyle = function(toilet) {
     	if (toilet == undefined || toilet.userData == undefined)
     		return {};
-    	var downvotes = Math.max(1, toilet.userData.downvotes);
+    	var downvotes = toilet.userData.downvotes;
     	var upvotes = toilet.userData.upvotes;
-    	var total = downvotes + upvotes;
+    	var total = Math.max(1,downvotes + upvotes);
     	return { color : 'rgb(' + Math.floor(255*(downvotes / total)) + ', ' + Math.floor(255*(upvotes / total)) + ', 0)' };
     };
     $scope.upVote = function (toilet) {
@@ -33,7 +33,7 @@ angular.module('poogleApp')
 
     	toilet.toiletStyle = 'getStyle(toilet)';
     };
-	
+
 	$scope.nearByPlaces = function(data, coords){
 		$scope.data = ngGPlacesAPI.nearbySearch(coords).then(function(data){
 			$timeout(function() {
@@ -45,7 +45,7 @@ angular.module('poogleApp')
 			});
 		});
 	};
-	
+
 	geolocation.getLocation().then(function(data){
 		$scope.coords = {latitude:data.coords.latitude, longitude:data.coords.longitude};
 		$scope.nearByPlaces(data, $scope.coords);
@@ -56,5 +56,5 @@ angular.module('poogleApp')
 			$scope.coords = {latitude:-33.8665433, longitude:151.1956316};
 			$scope.nearByPlaces($scope.data, $scope.coords);
 		});
-	
+
 });
