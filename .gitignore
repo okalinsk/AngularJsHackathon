@@ -3,6 +3,17 @@ dist
 .tmp
 .sass-cache
 
+# shit ionic added
+coverage
+platforms
+plugins
+*.swp
+*.swo
+*.log
+*.DS_Store
+www/scripts/config.js
+
+# ignoring things bower install except patches that were needed
 www/lib/*
 !/www/lib/angularjs-google-places/
 /www/lib/angularjs-google-places/*
