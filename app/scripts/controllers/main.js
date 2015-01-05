@@ -36,13 +36,11 @@ angular.module('poogleApp')
 
 	$scope.nearByPlaces = function(data, coords){
 		$scope.data = ngGPlacesAPI.nearbySearch(coords).then(function(data){
-			$timeout(function() {
 				$scope.data = data;
-				console.log(data);
+				//console.log(data);
 				data.forEach(function(place){
 					place.userData = pooUserDataFetcher.getUserDataFor(place.place_id);
 				});
-			});
 		});
 	};
 
@@ -51,7 +49,7 @@ angular.module('poogleApp')
 		$scope.nearByPlaces(data, $scope.coords);
 		}, function(error)
 		{
-			console.log(error);
+			//console.log(error);
 			//Default location
 			$scope.coords = {latitude:-33.8665433, longitude:151.1956316};
 			$scope.nearByPlaces($scope.data, $scope.coords);

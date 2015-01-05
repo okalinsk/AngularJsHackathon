@@ -26,6 +26,10 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/angular-google-maps/dist/angular-google-maps.js',
+      'bower_components/angularjs-google-places/src/google-api.js',
+      'bower_components/angularjs-google-places/src/angularjs-google-places.js',
+      'bower_components/angularjs-geolocation/src/geolocation.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
