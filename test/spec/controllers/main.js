@@ -9,7 +9,6 @@ describe('Controller: MainCtrl', function () {
     scope,
     ngGPlacesAPI,
     geolocation,
-    q,
     nearbyDefer,
     geoDefer,
     pooUserDataFetcher;
@@ -48,13 +47,13 @@ describe('Controller: MainCtrl', function () {
       expect(scope.data.length).toBe(0);
     });
 
-  })
+  });
 
   describe('geoLocation success', function () {
 
     beforeEach(function () {
       geoDefer.resolve({coords: {latitude: 0, longitude: 0}});
-    })
+    });
 
     it('Should start with 0 toilets', function () {
       nearbyDefer.resolve([]);
@@ -83,5 +82,5 @@ describe('Controller: MainCtrl', function () {
       scope.downVote(scope.data[0]);
       expect(scope.data[0].userData.downvotes).toBe(1);
     });
-  })
+  });
 });
