@@ -39,7 +39,7 @@ angular.module('poogleApp')
     };
 
 	$scope.nearByPlaces = function(data, coords){
-		$scope.data = ngGPlacesAPI.nearbySearch(coords).then(function(data){
+		ngGPlacesAPI.nearbySearch(coords).then(function(data){
 				$scope.data = data;
 				//console.log(data);
 				data.forEach(function(place){
